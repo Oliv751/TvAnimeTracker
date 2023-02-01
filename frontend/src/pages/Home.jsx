@@ -1,10 +1,14 @@
+import ShowList from "../components/ShowList";
 import Header from "../components/Header";
 
-export default function Home() {
+function Home() {
   return (
     <div>
       <Header />
-      <h1>Home Page</h1>
+      <h2>Last Shows</h2>
+      <ShowList />
     </div>
   );
 }
+
+export default Home;
