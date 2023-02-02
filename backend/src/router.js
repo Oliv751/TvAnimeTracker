@@ -10,4 +10,6 @@ router.put("/items/:id", itemControllers.edit);
 router.post("/items", itemControllers.add);
 router.delete("/items/:id", itemControllers.destroy);
 
+router.get("/users", itemControllers.browse);
+
 module.exports = router;
