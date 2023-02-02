@@ -20,7 +20,7 @@ VALUES (
         'toto'
     );
 
--- SHOserieW table
+-- SERIE table
 
 CREATE TABLE
     serie (
@@ -137,7 +137,7 @@ VALUES (
         'Guts, a lone mercenary, travels the world in a bleak and chaotic era, fighting with and against monstrous creatures to survive. He is known as the Black Swordsman.'
     );
 
--- episode_user table
+-- EPISODE_USER table
 
 CREATE TABLE
     episode_user (
