@@ -144,17 +144,11 @@ CREATE TABLE
         id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
         id_user int(11) UNSIGNED NOT NULL,
         CONSTRAINT fk_episode_user_user FOREIGN KEY (id_user) REFERENCES user (id),
-        id_serie int(11) UNSIGNED NOT NULL,
-        CONSTRAINT fk_episode_user_serie FOREIGN KEY (id_serie) REFERENCES serie (id),
-        season varchar(255) NOT NULL,
-        episode varchar(255) NOT NULL
+        id_episode int(11) UNSIGNED NOT NULL,
+        CONSTRAINT fk_episode_user_episode FOREIGN KEY (id_episode) REFERENCES episode (id),
+        seen BOOLEAN DEFAULT FALSE
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
 INSERT INTO
-    episode_user (
-        id_user,
-        id_serie,
-        season,
-        episode
-    )
-VALUES ('1', '1', '1', '1'), ('1', '1', '1', '2'), ('1', '2', '1', '1'), ('1', '2', '1', '2'), ('1', '3', '1', '1'), ('1', '3', '1', '2'), ('1', '4', '1', '1'), ('1', '4', '1', '2'), ('2', '1', '1', '1'), ('2', '1', '1', '2'), ('2', '2', '1', '1'), ('2', '2', '1', '2'), ('2', '3', '1', '1'), ('2', '3', '1', '2'), ('2', '4', '1', '1'), ('2', '4', '1', '2');
+    episode_user (id_user, id_episode, seen)
+VALUES ('1', '1', true);

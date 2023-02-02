@@ -1,0 +1,32 @@
+@import "variables";
+
+.serie-details {
+    display: flex;
+    flex-direction: column;
+
+    .serie-details-title {
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+
+    .serie-details-img {
+        width: 10rem;
+        height: auto;
+    }
+
+    .serie-details-genre {
+        font-weight: bold;
+        color: $base-color;
+    }
+
+    .serie-details-year {
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: $color-gray;
+    }
+
+    .serie-details-description {
+        font-size: 1.2rem;
+    }
+    
+}
