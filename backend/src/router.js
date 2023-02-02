@@ -28,6 +28,9 @@ router.delete("/series/:id", serieControllers.destroy);
 
 router.get("/episodes", episodeControllers.browse);
 router.get("/episodes/:id", episodeControllers.read);
+router.put("/episodes/:id", episodeControllers.edit);
+router.post("/episodes", episodeControllers.add);
+router.delete("/episodes/:id", episodeControllers.destroy);
 
 router.get("/episode_users", episodeUserControllers.browse);
 router.get("/episode_users/:id", episodeUserControllers.read);
