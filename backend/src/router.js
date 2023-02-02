@@ -16,9 +16,15 @@ const episodeUserControllers = require("./controllers/episodeUserControllers");
 
 router.get("/users", userControllers.browse);
 router.get("/users/:id", userControllers.read);
+router.put("/users/:id", userControllers.edit);
+router.post("/users", userControllers.add);
+router.delete("/users/:id", userControllers.destroy);
 
 router.get("/series", serieControllers.browse);
 router.get("/series/:id", serieControllers.read);
+router.put("/series/:id", serieControllers.edit);
+router.post("/series", serieControllers.add);
+router.delete("/series/:id", serieControllers.destroy);
 
 router.get("/episodes", episodeControllers.browse);
 router.get("/episodes/:id", episodeControllers.read);
