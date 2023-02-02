@@ -5,11 +5,11 @@ CREATE TABLE
         id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
         username varchar(255) NOT NULL,
         email varchar(255) NOT NULL,
-        password varchar(255) NOT NULL,
+        password varchar(255) NOT NULL
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
 INSERT INTO
-    user (id, username, email, password)
+    user (username, email, password)
 VALUES (
         'admin',
         'admin@mail.com',
@@ -20,52 +20,50 @@ VALUES (
         'toto'
     );
 
--- SHOW table
+-- SHOserieW table
 
 CREATE TABLE
-show (
+    serie (
         id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
         img varchar(255) NOT NULL,
         title varchar(255) NOT NULL,
         genre varchar(255) NOT NULL,
         year date NOT NULL,
-        description text (255) NOT NULL,
-        season varchar(255) NOT NULL,
+        description text NOT NULL
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
 INSERT INTO
-show (
-        id,
+    serie (
+        img,
         title,
         genre,
         year,
-        description,
-        season
+        description
     )
 VALUES (
+        "https://www.themoviedb.org/t/p/original/4UZzJ65UxR6AsKL6zjFWNYAKb3w.jpg",
         'The Walking Dead',
         'Horror',
-        '2010',
-        'A group of survivors travel in search of a safe and secure home.',
-        '10'
+        '2010-01-01',
+        'A group of survivors travel in search of a safe and secure home.'
     ), (
+        "https://www.themoviedb.org/t/p/original/ggFHVNu6YYI5L9pCfOacjizRGt.jpg",
         'Breaking Bad',
         'Drama',
-        '2008',
-        'A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family',
-        ' 5 '
+        '2008-01-01',
+        'A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family'
     ), (
-        ' Game of Thrones ',
-        ' Fantasy ',
-        ' 2011 ',
-        ' Nine noble families fight for control over the mythical lands of Westeros, while an ancient enemy returns after being dormant for thousands of years.',
-        ' 8 '
+        "https://www.themoviedb.org/t/p/original/3YSdxdhhdCDlMs88RhvjhDLX4CA.jpg",
+        'Game of Thrones',
+        'Fantasy',
+        '2011-01-01',
+        'Nine noble families fight for control over the mythical lands of Westeros, while an ancient enemy returns after being dormant for thousands of years.'
     ), (
-        ' Berserk ',
-        ' Fantasy ',
-        ' 1997 ',
-        ' Guts, a lone mercenary, travels the world in a bleak and chaotic era, fighting with and against monstrous creatures to survive. He is known as the Black Swordsman.',
-        ' 3 '
+        "https://www.themoviedb.org/t/p/original/lRNr5pAthmT5CO2iLexFLj1Tp66.jpg",
+        'Berserk',
+        'Fantasy',
+        '1997-01-01',
+        'Guts, a lone mercenary, travels the world in a bleak and chaotic era, fighting with and against monstrous creatures to survive. He is known as the Black Swordsman.'
     );
 
 -- EPISODE table
@@ -73,18 +71,17 @@ VALUES (
 CREATE TABLE
     episode (
         id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-        id_show int(11) UNSIGNED NOT NULL,
-        CONSTRAINT fk_episode_show FOREIGN KEY (id_show) REFERENCES
-        show (id),
-            season varchar(255) NOT NULL,
-            episode varchar(255) NOT NULL,
-            title varchar(255) NULL,
-            description text (255) NULL,
+        id_serie int(11) UNSIGNED NOT NULL,
+        season varchar(255) NOT NULL,
+        episode varchar(255) NOT NULL,
+        title varchar(255) NOT NULL,
+        description text NOT NULL,
+        CONSTRAINT fk_episode_serie FOREIGN KEY (id_serie) REFERENCES serie (id)
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
 INSERT INTO
     episode (
-        id_show,
+        id_serie,
         season,
         episode,
         title,
@@ -112,7 +109,7 @@ VALUES (
         '2',
         '1',
         '2',
-        'Cat\'s in the Bag...',
+        "Cat's in the Bag...",
         'A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family'
     ), (
         '3',
@@ -140,24 +137,23 @@ VALUES (
         'Guts, a lone mercenary, travels the world in a bleak and chaotic era, fighting with and against monstrous creatures to survive. He is known as the Black Swordsman.'
     );
 
--- SHOWVIEWED table
+-- episode_user table
 
 CREATE TABLE
-    showviewed (
+    episode_user (
         id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
         id_user int(11) UNSIGNED NOT NULL,
-        CONSTRAINT fk_showviewed_user FOREIGN KEY (id_user) REFERENCES user (id),
-        id_show int(11) UNSIGNED NOT NULL,
-        CONSTRAINT fk_showviewed_show FOREIGN KEY (id_show) REFERENCES
-        show (id),
-            season varchar(255) NOT NULL,
-            episode varchar(255) NOT NULL,
+        CONSTRAINT fk_episode_user_user FOREIGN KEY (id_user) REFERENCES user (id),
+        id_serie int(11) UNSIGNED NOT NULL,
+        CONSTRAINT fk_episode_user_serie FOREIGN KEY (id_serie) REFERENCES serie (id),
+        season varchar(255) NOT NULL,
+        episode varchar(255) NOT NULL
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
 INSERT INTO
-    showviewed (
+    episode_user (
         id_user,
-        id_show,
+        id_serie,
         season,
         episode
     )
