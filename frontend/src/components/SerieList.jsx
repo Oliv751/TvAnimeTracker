@@ -1,6 +1,6 @@
-import ShowCard from "./ShowCard";
+import SerieCard from "./SerieCard";
 
-function ShowList() {
+function SerieList() {
   const shows = [
     {
       id: 1,
@@ -48,10 +48,12 @@ function ShowList() {
   return (
     <div className="show-list">
       {shows.map((show) => (
-        <ShowCard key={show.id} show={show} />
+        <li key={show.id}>
+          <SerieCard show={show} />
+        </li>
       ))}
     </div>
   );
 }
 
-export default ShowList;
+export default SerieList;

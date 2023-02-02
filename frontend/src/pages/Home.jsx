@@ -1,4 +1,4 @@
-import ShowList from "../components/ShowList";
+import SerieList from "../components/SerieList";
 import Header from "../components/Header";
 
 function Home() {
@@ -6,7 +6,7 @@ function Home() {
     <div>
       <Header />
       <h2>Last Shows</h2>
-      <ShowList />
+      <SerieList />
     </div>
   );
 }
