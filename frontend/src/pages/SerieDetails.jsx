@@ -31,23 +31,28 @@ function SerieDetails() {
             className="serie-details-img"
             alt={serie.title}
           />
-
           <p className="serie-details-genre">{serie.genre}</p>
+          <p className="serie-details-year">{serie.year}</p>
+
+          <p className="serie-details-description">{serie.description}</p>
           {serie.episodes.map((episode) => (
             <section key={episode.id}>
               <header>
                 <span className="serie-details-season-episode">
                   {episode.season}x{episode.episode}
                 </span>
-                <h1 className="serie-details-title">{episode.title}</h1>
-                <input type="checkbox" checked={episode.seen} />
+                <input
+                  type="checkbox"
+                  className="serie-details-checkbox"
+                  checked={episode.seen}
+                />
+                <h3 className="serie-details-episode-title">{episode.title}</h3>
               </header>
-              <p>{episode.description}</p>
+              <p className="serie-details-episode-description">
+                {episode.description}
+              </p>
             </section>
           ))}
-          <p className="serie-details-year">{serie.year}</p>
-
-          <p className="serie-details-description">{serie.description}</p>
         </div>
       )}
     </>

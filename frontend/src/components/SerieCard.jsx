@@ -1,8 +1,8 @@
 import React from "react";
 import SampleCard from "./sampleCard";
-import "../styles/showCard.scss";
+import "../styles/serieCard.scss";
 
-function ShowCard({ show }) {
+function SerieCard({ show }) {
   return (
     <div className="show-card">
       <img src={show.img} className="show-card-img" alt="Img" />
@@ -20,12 +20,12 @@ function ShowCard({ show }) {
   );
 }
 
-ShowCard.defaultProps = {
+SerieCard.defaultProps = {
   show: [],
 };
 
-ShowCard.propTypes = {
+SerieCard.propTypes = {
   show: SampleCard,
 };
 
-export default ShowCard;
+export default SerieCard;

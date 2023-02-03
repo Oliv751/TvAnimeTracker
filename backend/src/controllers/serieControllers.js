@@ -14,7 +14,7 @@ const browse = (req, res) => {
 
 const read = (req, res) => {
   models.serie
-    .findForUser(req.params.id, 1)
+    .findForUser(req.params.id, 1) // TODO get user id from session
     .then(([rows]) => {
       if (rows[0] == null) {
         res.sendStatus(404);
